@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>¿Quién Quiere Ser Financiero? 💸</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="topbar">
+      <img src="images/hero_1200.webp" alt="" class="hero" width="150" height="50" loading="lazy" />
+      <h1 class="title">Aprende y Gana con Caja de Credito de Chalatenango<span class="emoji">💸</span></h1>
+      <div class="meta">
+        <div class="timer" id="timer" aria-live="polite" title="Tiempo restante"></div>
+        <div class="score">
+          <span>Premio:</span>
+          <strong id="money"></strong>
+        </div>
+        <div class="streak">
+          <span>Racha:</span>
+          <strong id="streak">0</strong>
+        </div>
+      </div>
+    </header>
+
+    <section id="screen-menu" class="screen active" aria-labelledby="menu-title">
+      <h2 id="menu-title" class="sr-only">Menú principal</h2>
+      <div class="card intro">
+        <p>
+          Pon a prueba tus conocimientos de educación financiera y finanzas personales.
+          Responde 10 preguntas con 4 opciones (solo 1 correcta).
+        </p>
+        <ul class="bullets">
+          <li>3 comodines: <strong>50/50</strong>, <strong>Público</strong>, <strong>Cambiar</strong>.</li>
+          <li>2 escalones de seguridad: <strong>Monedero</strong> y <strong>Alcancia</strong>.</li>
+          <li>60 segundos por pregunta.</li>
+        </ul>
+        <div class="actions">
+          <button id="btn-start" class="btn primary">Comenzar</button>
+          <button id="btn-how" class="btn">Cómo jugar</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-how" class="screen" aria-labelledby="how-title">
+      <h2 id="how-title">Cómo jugar</h2>
+      <ol class="howto">
+        <li>Lee bien la pregunta y elige una opción. Confirma tu respuesta.</li>
+        <li>Usa los comodines si dudas: <em>50/50</em> elimina dos opciones, <em>Público</em> te da un % orientativo,
+          <em>Cambiar</em> salta a otra pregunta.
+        </li>
+        <li>Si fallas antes de un escalón, te vas con sin premio. Si superas un escalón, te llevas un bonito promocional.</li>
+      </ol>
+      <button class="btn" id="btn-back-menu">Volver</button>
+    </section>
+
+    <section id="screen-game" class="screen" aria-labelledby="game-title">
+      <h2 id="game-title" class="sr-only">Juego en progreso</h2>
+
+      <aside class="ladder" aria-label="Escalera de premios">
+        <ol id="ladder-list" class="ladder-list" reversed></ol>
+      </aside>
+
+      <div class="board">
+        <div class="question" id="question" aria-live="polite"></div>
+
+        <div class="options" role="list" aria-label="Opciones de respuesta">
+          <button class="option" data-index="0" id="opt-0"></button>
+          <button class="option" data-index="1" id="opt-1"></button>
+          <button class="option" data-index="2" id="opt-2"></button>
+          <button class="option" data-index="3" id="opt-3"></button>
+        </div>
+
+        <div class="controls">
+          <button id="btn-confirm" class="btn primary" disabled>Confirmar</button>
+          <button id="btn-next" class="btn" disabled>Siguiente</button>
+        </div>
+
+        <div class="lifelines" aria-label="Comodines">
+          <button id="ll-5050" class="chip" title="50/50: elimina dos opciones">50/50</button>
+          <button id="ll-audience" class="chip" title="Público: porcentaje estimado">Público</button>
+          <button id="ll-skip" class="chip" title="Cambiar: salta a una pregunta nueva">Cambiar</button>
+        </div>
+
+        <div id="audience-chart" class="audience-chart" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section id="screen-gameover" class="screen" aria-labelledby="over-title">
+      <h2 id="over-title">¡Juego terminado!</h2>
+      <div class="card center">
+        <p id="over-text"></p>
+        <div class="actions">
+          <button id="btn-retry" class="btn primary">Jugar de nuevo</button>
+          <button id="btn-menu" class="btn">Menú</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>Hecho con 💙 — Caja de Credito de Chalatenango</small>
+    </footer>
+  </main>
+
+  <div id="live-region" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
+
+  <script src="scripts/app.js" defer></script>
+</body>
+
+</html>
