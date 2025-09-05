@@ -4,8 +4,15 @@
   const $$ = (sel) => document.querySelectorAll(sel);
 
   // ---------- Configuración ----------
-  const MONEY_LADDER = ["Squiz", "Alcancia", "Portatarjeta", "monedero", "lapicero"];
-  const SAFE_STEPS = new Set([1000, 32000]);
+  const MONEY_LADDER = [
+    "Squiz",
+    "Alcancia",
+    "Portatarjeta",
+    "monedero",
+    "lapicero",
+  ];
+  const SAFE_STEPS = new Set([1, 3]);
+
   const QUESTION_TIME = 60; // segundos
 
   let QUESTIONS = [];
@@ -21,19 +28,24 @@
     usedSkip: false,
     streak: 0,
     timeLeft: QUESTION_TIME,
-    timerId: null
+    timerId: null,
   };
 
   // ---------- Utilidades ----------
-  const shuffle = (arr) => arr.slice().map(v => [Math.random(), v]).sort((a, b) => a[0] - b[0]).map(x => x[1]);
+  const shuffle = (arr) =>
+    arr
+      .slice()
+      .map((v) => [Math.random(), v])
+      .sort((a, b) => a[0] - b[0])
+      .map((x) => x[1]);
   const formatMoney = (n) => `${n}`;
 
-  const safeFloor = (amountWon) => {
-    const reached = MONEY_LADDER.filter(a => a <= amountWon);
-    for (const a of MONEY_LADDER.slice().reverse()) {
-      if (SAFE_STEPS.has(a) && reached.includes(a)) return a;
+  const safeFloor = (currentIdx) => {
+    let safePrize = null;
+    for (let i = 0; i <= currentIdx; i++) {
+      if (SAFE_STEPS.has(i)) safePrize = MONEY_LADDER[i];
     }
-    return 0;
+    return safePrize || "Nada";
   };
 
   const speak = (msg) => {
@@ -47,7 +59,7 @@
     menu: $("#screen-menu"),
     how: $("#screen-how"),
     game: $("#screen-game"),
-    over: $("#screen-gameover")
+    gameover: $("#screen-gameover"),
   };
   const questionEl = $("#question");
   const optionEls = [$("#opt-0"), $("#opt-1"), $("#opt-2"), $("#opt-3")];
@@ -88,7 +100,9 @@
       const amount = MONEY_LADDER[i];
       const li = document.createElement("li");
       li.dataset.amount = String(amount);
-      li.innerHTML = `<span class="step">${MONEY_LADDER.length - i}</span> <span class="amount">${formatMoney(amount)}</span>`;
+      li.innerHTML = `<span class="step">${
+        MONEY_LADDER.length - i
+      }</span> <span class="amount">${formatMoney(amount)}</span>`;
       if (SAFE_STEPS.has(amount)) li.classList.add("safe");
       ladderList.appendChild(li);
     }
@@ -96,14 +110,14 @@
   }
   function highlightLadder() {
     const step = MONEY_LADDER.length - state.currentIdx;
-    $$("#ladder-list li").forEach(li => li.classList.remove("active"));
+    $$("#ladder-list li").forEach((li) => li.classList.remove("active"));
     const active = $(`#ladder-list li:nth-child(${step})`);
     if (active) active.classList.add("active");
   }
 
   // ---------- Pantallas ----------
   function showScreen(name) {
-    Object.values(screens).forEach(s => s.classList.remove("active"));
+    Object.values(screens).forEach((s) => s.classList.remove("active"));
     screens[name].classList.add("active");
   }
 
@@ -123,7 +137,9 @@
       }
     }, 1000);
   }
-  function stopTimer() { clearInterval(state.timerId); }
+  function stopTimer() {
+    clearInterval(state.timerId);
+  }
 
   // ---------- Juego ----------
   async function startGame() {
@@ -141,17 +157,19 @@
     streakEl.textContent = "0";
 
     // Mezclar y preparar preguntas
-    const shuffledQuestions = shuffle(QUESTIONS).slice(0, MONEY_LADDER.length).map(q => {
-      const optIdx = [0, 1, 2, 3];
-      const shuffledIdx = shuffle(optIdx);
-      const options = shuffledIdx.map(i => q.options[i]);
-      const newAnswerIndex = options.indexOf(q.options[q.answerIndex]);
-      return { ...q, options, answerIndex: newAnswerIndex };
-    });
+    const shuffledQuestions = shuffle(QUESTIONS)
+      .slice(0, MONEY_LADDER.length)
+      .map((q) => {
+        const optIdx = [0, 1, 2, 3];
+        const shuffledIdx = shuffle(optIdx);
+        const options = shuffledIdx.map((i) => q.options[i]);
+        const newAnswerIndex = options.indexOf(q.options[q.answerIndex]);
+        return { ...q, options, answerIndex: newAnswerIndex };
+      });
     state.shuffled = shuffledQuestions;
 
     // Reset UI lifelines
-    [ll5050, llAudience, llSkip].forEach(btn => btn.classList.remove("used"));
+    [ll5050, llAudience, llSkip].forEach((btn) => btn.classList.remove("used"));
     audienceChart.classList.remove("active");
     audienceChart.setAttribute("aria-hidden", "true");
     audienceChart.innerHTML = "";
@@ -178,13 +196,15 @@
     btnNext.disabled = true;
   }
 
-  function lockOptions() { optionEls.forEach(btn => btn.disabled = true); }
+  function lockOptions() {
+    optionEls.forEach((btn) => (btn.disabled = true));
+  }
 
   function handleSelectOption(i) {
-    optionEls.forEach(btn => btn.classList.remove("selected"));
+    optionEls.forEach((btn) => btn.classList.remove("selected"));
     const btn = optionEls[i];
     btn.classList.add("selected");
-    optionEls.forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+    optionEls.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
     state.selected = i;
     btnConfirm.disabled = false;
     speak(`Opción ${String.fromCharCode(65 + i)} seleccionada.`);
@@ -209,7 +229,7 @@
     if (correct) {
       state.streak++;
       streakEl.textContent = String(state.streak);
-      state.money = MONEY_LADDER[state.currentIdx];
+      state.money = MONEY_LADDER[MONEY_LADDER.length - 1 - state.currentIdx];
       moneyEl.textContent = formatMoney(state.money);
       btnNext.disabled = false;
       btnConfirm.disabled = true;
@@ -236,21 +256,28 @@
     const minTake = safeFloor(state.money);
     const finalMoney = won ? MONEY_LADDER[MONEY_LADDER.length - 1] : minTake;
     overText.innerHTML = won
-      ? `🎉 <strong>¡Felicidades!</strong> Completaste el juego y ganaste <strong>${formatMoney(finalMoney)}</strong>.<br/>Racha: ${state.streak}.`
+      ? `🎉 <strong>¡Felicidades!</strong> Completaste el juego y ganaste <strong>${formatMoney(
+          finalMoney
+        )}</strong>.<br/>Racha: ${state.streak}.`
       : timeOut
-        ? `⏰ Se acabó el tiempo. Te llevas <strong>${formatMoney(finalMoney)}</strong>. ¡Sigue practicando!`
-        : `❌ Respuesta incorrecta. Te llevas <strong>${formatMoney(finalMoney)}</strong>.`;
+      ? `⏰ Se acabó el tiempo. Te llevas <strong>${formatMoney(
+          finalMoney
+        )}</strong>. ¡Sigue practicando!`
+      : `❌ Respuesta incorrecta.`;
     showScreen("gameover");
     const best = Number(localStorage.getItem("bestMoney") || "0");
-    if (finalMoney > best) localStorage.setItem("bestMoney", String(finalMoney));
+    if (finalMoney > best)
+      localStorage.setItem("bestMoney", String(finalMoney));
   }
 
   // ---------- Comodines ----------
   function use5050() {
     if (state.used5050) return;
     const q = state.shuffled[state.currentIdx];
-    const wrongs = [0, 1, 2, 3].filter(i => i !== q.answerIndex);
-    shuffle(wrongs).slice(0, 2).forEach(i => optionEls[i].hidden = true);
+    const wrongs = [0, 1, 2, 3].filter((i) => i !== q.answerIndex);
+    shuffle(wrongs)
+      .slice(0, 2)
+      .forEach((i) => (optionEls[i].hidden = true));
     state.used5050 = true;
     ll5050.classList.add("used");
   }
@@ -261,11 +288,16 @@
     const base = [0, 0, 0, 0];
     let remaining = 100;
     const correctBias = 40 + Math.floor(Math.random() * 21);
-    base[q.answerIndex] = correctBias; remaining -= correctBias;
-    const others = [0, 1, 2, 3].filter(i => i !== q.answerIndex);
+    base[q.answerIndex] = correctBias;
+    remaining -= correctBias;
+    const others = [0, 1, 2, 3].filter((i) => i !== q.answerIndex);
     others.forEach((i, idx) => {
-      const val = idx === others.length - 1 ? remaining : Math.floor(Math.random() * (remaining - (others.length - idx - 1)));
-      base[i] = val; remaining -= val;
+      const val =
+        idx === others.length - 1
+          ? remaining
+          : Math.floor(Math.random() * (remaining - (others.length - idx - 1)));
+      base[i] = val;
+      remaining -= val;
     });
     showAudienceChart(base);
     state.usedAudience = true;
@@ -274,13 +306,17 @@
 
   function showAudienceChart(percentages) {
     audienceChart.innerHTML = `<div class="bars">
-      ${percentages.map((p, i) => `
+      ${percentages
+        .map(
+          (p, i) => `
         <div class="bar">
           <div class="label">${String.fromCharCode(65 + i)}</div>
           <div class="value" style="width:${p}%"></div>
           <div class="pct" style="margin-left:.5rem;color:#d6defa;font-weight:700">${p}%</div>
         </div>
-      `).join("")}
+      `
+        )
+        .join("")}
     </div>`;
     audienceChart.classList.add("active");
     audienceChart.setAttribute("aria-hidden", "false");
@@ -290,14 +326,19 @@
     if (state.usedSkip) return;
     state.usedSkip = true;
     llSkip.classList.add("used");
-    const remaining = QUESTIONS.filter(q => !state.shuffled.includes(q));
+    const remaining = QUESTIONS.filter((q) => !state.shuffled.includes(q));
     if (remaining.length > 0) {
-      const replacement = remaining[Math.floor(Math.random() * remaining.length)];
+      const replacement =
+        remaining[Math.floor(Math.random() * remaining.length)];
       const idxs = [0, 1, 2, 3];
       const sh = shuffle(idxs);
-      const opts = sh.map(i => replacement.options[i]);
+      const opts = sh.map((i) => replacement.options[i]);
       const ans = opts.indexOf(replacement.options[replacement.answerIndex]);
-      state.shuffled[state.currentIdx] = { ...replacement, options: opts, answerIndex: ans };
+      state.shuffled[state.currentIdx] = {
+        ...replacement,
+        options: opts,
+        answerIndex: ans,
+      };
     }
     loadQuestion();
   }
@@ -305,7 +346,12 @@
   // ---------- Eventos ----------
   optionEls.forEach((btn, i) => {
     btn.addEventListener("click", () => handleSelectOption(i));
-    btn.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleSelectOption(i); } });
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleSelectOption(i);
+      }
+    });
   });
   btnConfirm.addEventListener("click", confirmAnswer);
   btnNext.addEventListener("click", nextQuestion);
