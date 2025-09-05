@@ -1,248 +1,112 @@
 [
-    {
-        "q": "¿Qué es un fondo de emergencia recomendado para la mayoría de personas?",
-        "options": [
-            "El equivalente a 3–6 meses de gastos",
-            "El 10% de tu salario mensual",
-            "Un mes de alquiler",
-            "Lo que sobre al final del año"
-        ],
-        "answerIndex": 0,
-        "tip": "Cubre imprevistos como desempleo o gastos médicos."
-    },
-    {
-        "q": "¿Qué significa Tasa de Interés Efectiva Anual (TEA)?",
-        "options": [
-            "La tasa que incluye capitalización y costos aplicados al año",
-            "La tasa que se publica en la web del banco",
-            "La tasa sin comisiones ni seguros",
-            "La tasa mensual multiplicada por 12"
-        ],
-        "answerIndex": 0
-    },
-    {
-        "q": "Si una tarjeta de crédito tiene 45 días de gracia, ¿qué sucede si pagas el total a tiempo?",
-        "options": [
-            "No pagas intereses por esas compras",
-            "Se reduce tu límite automáticamente",
-            "Te cobran solo el 50% de los intereses",
-            "Aumenta tu score sin importar nada más"
-        ],
-        "answerIndex": 0
-    },
-    {
-        "q": "¿Qué es un score crediticio?",
-        "options": [
-            "Un número que refleja tu historial de crédito",
-            "El monto máximo que puedes pedir prestado",
-            "La tasa de interés que te ofrecen",
-            "El saldo de tu tarjeta de crédito"
-        ],
-        "answerIndex": 0,
-        "tip": "Un buen score te ayuda a obtener mejores condiciones de crédito."
-    },
-    {
-        "q": "¿Qué es un préstamo quirografario?",
-        "options": [
-            "Un préstamo sin garantía real, basado en tu capacidad de pago",
-            "Un préstamo con garantía hipotecaria",
-            "Un préstamo para comprar un vehículo",
-            "Un préstamo para financiar estudios"
-        ],
-        "answerIndex": 0
-    },
-    {
-        "q": "¿Qué es un fondo de inversión?",
-        "options": [
-            "Un vehículo que agrupa dinero de varios inversores para comprar activos",
-            "Una cuenta de ahorros con alta rentabilidad",
-            "Un tipo de préstamo personal",
-            "Un seguro de vida"
-        ],
-        "answerIndex": 0
-    },
-    {
-        "q": "¿Qué es la inflación?",
-        "options": [
-            "El aumento generalizado de precios en una economía",
-            "La disminución del valor del dinero",
-            "El crecimiento económico de un país",
-            "La tasa de interés que cobran los bancos"
-        ],
-        "answerIndex": 0
-    },
-    {
-        "q": "¿Qué es un crédito hipotecario?",
-        "options": [
-            "Un préstamo para comprar una vivienda, garantizado por la propiedad",
-            "Un préstamo personal sin garantía",
-            "Un préstamo para financiar estudios",
-            "Un préstamo para comprar un vehículo"
-        ],
-        "answerIndex": 0
-    },
-    {
-        "q": "¿Qué es un presupuesto personal?",
-        "options": [
-            "Un plan que detalla tus ingresos y gastos mensuales",
-            "Una lista de compras del supermercado",
-            "Un documento para solicitar un préstamo",
-            "Un informe financiero anual"
-        ],
-        "answerIndex": 0
-    },
-    [
-        {
-            "q": "¿Qué es un fondo de emergencia recomendado para la mayoría de personas?",
-            "options": [
-                "El equivalente a 3–6 meses de gastos",
-                "El 10% de tu salario mensual",
-                "Un mes de alquiler",
-                "Lo que sobre al final del año"
-            ],
-            "answerIndex": 0,
-            "tip": "Cubre imprevistos como desempleo o gastos médicos."
-        },
-        {
-            "q": "¿Qué significa Tasa de Interés Efectiva Anual (TEA)?",
-            "options": [
-                "La tasa que incluye capitalización y costos aplicados al año",
-                "La tasa que se publica en la web del banco",
-                "La tasa sin comisiones ni seguros",
-                "La tasa mensual multiplicada por 12"
-            ],
-            "answerIndex": 0
-        },
-        {
-            "q": "Si una tarjeta de crédito tiene 45 días de gracia, ¿qué sucede si pagas el total a tiempo?",
-            "options": [
-                "No pagas intereses por esas compras",
-                "Se reduce tu límite automáticamente",
-                "Te cobran solo el 50% de los intereses",
-                "Aumenta tu score sin importar nada más"
-            ],
-            "answerIndex": 0
-        },
-        {
-            "q": "La diversificación en inversiones busca principalmente:",
-            "options": [
-                "Reducir el riesgo total del portafolio",
-                "Aumentar comisiones del bróker",
-                "Multiplicar la rentabilidad sin riesgo",
-                "Evitar declarar impuestos"
-            ],
-            "answerIndex": 0
-        },
-        {
-            "q": "¿Cuál es una buena regla para comprar un automóvil?",
-            "options": [
-                "Que el pago mensual no supere el 10–15% de tu ingreso",
-                "Financiarlo al mayor plazo posible",
-                "Usar la tarjeta de crédito para la inicial",
-                "Comprar el más caro que te aprueben"
-            ],
-            "answerIndex": 0
-        },
-        {
-            "q": "En un presupuesto 50/30/20, ¿qué representa el 20%?",
-            "options": [
-                "Ahorro e inversión",
-                "Gastos fijos esenciales",
-                "Entretenimiento",
-                "Impuestos"
-            ],
-            "answerIndex": 0
-        },
-        {
-            "q": "El interés compuesto se describe mejor como:",
-            "options": [
-                "Interés que genera interés a lo largo del tiempo",
-                "Interés que se paga solo al final",
-                "Interés que no cambia nunca",
-                "Interés que solo aplican los bancos estatales"
-            ],
-            "answerIndex": 0
-        },
-        {
-            "q": "¿Qué indicador es más útil para comparar préstamos con diferentes costos?",
-            "options": [
-                "CAT o Costo Anual Total / TAE",
-                "Cuota mensual más baja",
-                "Monto del seguro",
-                "Penalidad por prepago"
-            ],
-            "answerIndex": 0
-        },
-        {
-            "q": "Tu score crediticio mejora principalmente cuando:",
-            "options": [
-                "Pagas a tiempo y mantienes baja utilización",
-                "Solicitas muchas tarjetas a la vez",
-                "Usas siempre el 95% del límite",
-                "Cierras tu tarjeta más antigua"
-            ],
-            "answerIndex": 0
-        },
-        {
-            "q": "¿Qué es la inflación?",
-            "options": [
-                "Aumento sostenido del nivel general de precios",
-                "Disminución del poder adquisitivo del gobierno",
-                "Subida del tipo de cambio",
-                "Reducción de los salarios nominales"
-            ],
-            "answerIndex": 0
-        },
-        {
-            "q": "Para metas a 1–3 años, ¿qué vehículo suele ser más adecuado?",
-            "options": [
-                "Instrumentos de renta fija/alta liquidez",
-                "Acciones individuales de alto riesgo",
-                "Criptomonedas volátiles",
-                "Opciones apalancadas"
-            ],
-            "answerIndex": 0
-        },
-        {
-            "q": "¿Qué porcentaje de tu ingreso conviene destinar a vivienda (renta/hipoteca) como máximo recomendado?",
-            "options": [
-                "No más del 30–35%",
-                "50% o más si es céntrico",
-                "Solo 10%",
-                "Lo que el banco apruebe"
-            ],
-            "answerIndex": 0
-        },
-        {
-            "q": "¿Qué significa 'pagar primero a ti mismo' en finanzas personales?",
-            "options": [
-                "Ahorrar/invertir en cuanto recibes ingresos",
-                "Comprar lo que te guste antes de ahorrar",
-                "Pagar deudas al final de mes",
-                "Gastar el bono completo"
-            ],
-            "answerIndex": 0
-        },
-        {
-            "q": "La regla del 72 sirve para:",
-            "options": [
-                "Estimar en cuántos años se duplica tu dinero",
-                "Calcular el impuesto anual",
-                "Determinar la cuota de un préstamo",
-                "Saber cuánto pedir fiado"
-            ],
-            "answerIndex": 0,
-            "tip": "Divide 72 entre la tasa anual de rendimiento."
-        },
-        {
-            "q": "¿Cuál es la mejor práctica respecto al seguro de salud?",
-            "options": [
-                "Tener cobertura acorde a tu situación para evitar gastos catastróficos",
-                "Evitarlo porque es caro",
-                "Usarlo solo si la empresa lo paga",
-                "Contratarlo después de enfermar"
-            ],
-            "answerIndex": 0
-        }
-    ]
+      {
+           "q": "¿Qué es el ahorro?",
+           "options": [
+         "Una entrada de dinero",
+        "Es una parte del dinero que se guarda para lograr las metas",
+         "Es un dinero que se paga a los bancos",
+         "Dinero prestado"
+           ],
+           "answerIndex": 1
+       },
+
+{
+           "q": "¿Qué es el ingreso?",
+           "options": [
+         "La cantidad de dinero recibida por un determinado tiempo",
+         "Pagos que se realizan de forma anual",
+         "Dinero que se deposita en un banco",
+         "Ninguna de las anteriores"
+           ],
+           "answerIndex": 0
+       },
+
+{
+           "q": "¿Cuál de las siguientes afirmaciones de PRESUPUESTO es FALSA?",
+           "options": [
+         "El presupuesto sirve para saber en qué se gasta el dinero",
+         "Nos permite priorizar los gastos",
+         "Nos permite comprar productos que no son necesarios",
+         "Nos permite organizar nuestro dinero"
+           ],
+           "answerIndex": 2
+       },
+
+{
+           "q": "¿Cuál de las siguientes afirmaciones NO es correcta?",
+           "options": [
+         "El ahorro debe de ser una meta fija y no lo que sobra de dinero",
+         "A la hora de comprar podemos excedernos del presupuesto",
+         "Guardar cada mes al menos 10% de los ingresos",
+         "Nunca debemos gastar más de lo que ganamos"
+           ],
+           "answerIndex": 1
+       },
+
+{
+           "q": "¿Qué es un gasto hormiga?",
+           "options": [
+         "Lo que gastamos cada mes",
+         "Los ingresos que tenemos extras",
+         "Gastos pequeños que se hacen por un deseo o impulso",
+         "Ninguna de las Anteriores"
+           ],
+           "answerIndex": 2
+       },
+
+{
+           "q": "¿Cuál de las siguientes afirmaciones es VERDADERA?",
+           "options": [
+         "Guardar el dinero en casa es lo más seguro",
+         "No deberías de ahorrar mucho",
+         "Guardar tu dinero en una Cuenta de Ahorros es más seguro y trae beneficios",
+         "Compra lo que quieras cuando se te antoje"
+           ],
+           "answerIndex": 2
+       },
+
+{
+           "q": "¿Cuál de las siguientes afirmaciones es la VERDADERA?",
+           "options": [
+         "Debes utilizar tu tarjeta de Crédito para todas tus compras",
+         "Tener una Tarjeta de Crédito es malo para mis finanzas",
+         "Debo de utilizar mi Tarjeta de Crédito de manera responsable y pagarla a tiempo",
+         "Ninguna de las anteriores"
+           ],
+           "answerIndex": 2
+       },
+
+{
+           "q": "¿Qué es un adelanto de salario?",
+           "options": [
+         "Un regalo de parte de la empresa o el jefe",
+         "Un préstamo con intereses",
+         "Es un premio por ser un excelente empleado",
+         "Adelanto en efectivo que se deducirá automáticamente en el siguiente pago de salario"
+           ],
+           "answerIndex": 3
+       },
+
+{
+           "q": "¿Qué es una cuenta de ahorro?",
+           "options": [
+         "Es un préstamo de dinero",
+         "Documento que representa promesa de pago",
+         "Es un producto diseñado para depositar dinero y acumularlo, con el tiempo genera rentabilidad por los intereses",
+         "Documento para retirar dinero que me presta una entidad financiera"
+           ],
+           "answerIndex": 2
+       },
+
+{
+           "q": "¿Qué es un crédito?",
+           "options": [
+         "Salario por un servicio prestado",
+         "Inversión en un negocio",
+         "Dinero que presta una institución financiera con el compromiso que sea devuelto con intereses",
+         "Ninguna de las anteriores"
+           ],
+           "answerIndex": 2
+
+       } 
 ]
