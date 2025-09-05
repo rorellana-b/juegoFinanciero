@@ -1,6 +1,6 @@
 /* styles.css — ¿Quién Quiere Ser Financiero? */
 :root {
-  --bg: #fff;
+  --bg: #97f375;
   --card: #037f4f;
   --primary: #053a18;
   --primary-600: #2758c7;
@@ -99,7 +99,8 @@ body {
   border: 1px solid #19214a;
   box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
   border-radius: 18px;
-  padding: 1.25rem;
+  padding: 2rem;
+  font-size: x-large;
 }
 
 .card.center {
@@ -126,6 +127,7 @@ body {
   top: 84px;
   max-height: calc(100dvh - 120px);
   overflow: auto;
+  margin-left: 60px;
 }
 
 .ladder-list {
@@ -143,13 +145,13 @@ body {
   margin: .35rem 0;
   border-radius: 12px;
   border: 1px solid #1b2650;
-  background: #0f1633;
+  background: var(--card);
   color: var(--muted);
 }
 
 .ladder-list li.active {
-  background: #142057;
-  color: var(--accent);
+  background: var(--bg);
+  color: var(--primary);
   border-color: #22327a;
 }
 
@@ -162,16 +164,21 @@ body {
   font-weight: 700;
 }
 
-/* main,
+main,
 #screen-menu,
 #screen-how,
-#scree-game,
+#screen-game,
 #screen-gameover {
-  background-color: #037f4f;
-} */
+  background-color: #cffceb;
+}
+
+.literal {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
 
 .board {
-  margin-right: min(260px, 35%);
+  margin-right: min(230px, 35%);
   display: grid;
   gap: 1rem;
 }
@@ -179,8 +186,9 @@ body {
 .question {
   font-size: clamp(1rem, 2.5vw, 1.35rem);
   padding: 1rem 1.25rem;
+  height: 100px;
   border-radius: 16px;
-  background: #0e1633;
+  background: linear-gradient(180deg, var(--primary), var(--card));
   border: 1px solid #1b2650;
   box-shadow: inset 0 -6px 0 rgba(0, 0, 0, .15);
 }
@@ -189,18 +197,20 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: .75rem;
+  font-size: larger;
 }
 
 .option {
   text-align: left;
   padding: .85rem 1rem;
-  background: linear-gradient(180deg, #121c40, #0d1430);
+  background: linear-gradient(180deg, var(--primary), var(--card));
   border: 1px solid #1a2757;
   border-radius: 14px;
   color: var(--text);
   font-weight: 600;
   cursor: pointer;
   transition: transform .08s ease, border-color .2s ease;
+  font-size:medium;
 }
 
 .option:hover {
@@ -223,18 +233,21 @@ body {
 }
 
 .controls {
+  margin-top: 80px;
   display: flex;
   gap: .75rem;
+  justify-content: center;
 }
 
 .btn {
-  background: #131c44;
-  border: 1px solid #21306d;
+  background: linear-gradient(180deg, var(--primary), var(--card));
+  border: 1px solid var(--primary);
   color: var(--text);
   padding: .7rem 1rem;
   border-radius: 999px;
   cursor: pointer;
   font-weight: 600;
+   width: 200px;
 }
 
 .btn:hover {
@@ -247,22 +260,24 @@ body {
 }
 
 .btn.primary {
-  background: var(--primary);
-  border-color: var(--primary-600);
+  background: linear-gradient(180deg, var(--primary), var(--card));
+  border-color: var(--primary);
   color: white;
+  width: 200px;
 }
 
 .lifelines {
   display: flex;
   gap: .5rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .chip {
   background: #101736;
   border: 1px solid #1b2a67;
   color: #d6defa;
-  padding: .45rem .7rem;
+  padding: .9rem 1rem;
   border-radius: 999px;
   cursor: pointer;
   font-weight: 700;
