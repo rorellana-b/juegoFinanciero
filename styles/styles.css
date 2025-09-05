@@ -169,7 +169,11 @@ main,
 #screen-how,
 #screen-game,
 #screen-gameover {
-  background-color: #cffceb;
+  background-color: #f6fbf9;
+}
+
+.hero{
+  border-radius: 6px;
 }
 
 .literal {
