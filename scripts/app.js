@@ -8,8 +8,8 @@
     "Squiz",
     "Alcancia",
     "Portatarjeta",
-    "monedero",
-    "lapicero",
+    "Monedero",
+    "Lapicero",
   ];
   const SAFE_STEPS = new Set([1, 3]);
 
